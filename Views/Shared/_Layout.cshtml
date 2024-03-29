@@ -12,7 +12,7 @@
 </head>
 <body class="flex-column">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SmartBudget</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -34,21 +34,21 @@
     </header>
 
     <div class="position-fixed side-navbar" style="width: 15%; height: 100vh;">
-        <div class="border border-1 border-black" style="padding: 10px; height: 100%;">
+        <div class="border border-1 border-black " style="padding: 10px; height: 100%;">
             <div style="padding: 5px;">
-                <a href="@Url.Action("Home","Index")">Dashboard</a>
+                <a class="nav-link"  asp-controller="Home" asp-action="Index">Dashboard</a>
+            </div>
+            <div class="nav-item"style="padding: 5px;">
+                <a class="nav-link" asp-controller="Categories" asp-action="Index">Categories</a>
             </div>
             <div style="padding: 5px;">
-                <a href="@Url.Action("Index","Categories")">Categories</a>
-            </div>
-            <div style="padding: 5px;">
-                <a href="@Url.Action("Index","Transactions")">Transactions</a>
+                <a  class="nav-link" asp-controller="Transactions" asp-action="Index">Transactions</a>
             </div>
         </div>
     </div>
  
     <div>
-        <main style=" width:85%;margin-left: 17%;" role="main">
+        <main class="mt-4"style=" width:85%;margin-left: 17%;" role="main">
  
                 @RenderBody()
         </main>
@@ -56,7 +56,7 @@
 
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div style="background-color:white"class="container">
             &copy; 2024 - SmartBudget - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
