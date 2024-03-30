@@ -1,0 +1,6 @@
+![2](https://github.com/OmarShalabi856/SmartBudget-MVC/assets/93845511/da1a4878-68a3-4d80-bb1a-bd2c327f1eb1)
+![1](https://github.com/OmarShalabi856/SmartBudget-MVC/assets/93845511/002a5169-119d-4dcc-8ff0-9d166cef5d13)
+![6](https://github.com/OmarShalabi856/SmartBudget-MVC/assets/93845511/c3ee0147-3e51-4059-a600-6954b20c881e)
+![5](https://github.com/OmarShalabi856/SmartBudget-MVC/assets/93845511/fcc77c44-ee11-457d-94a5-4a3152c72922)
+![4](https://github.com/OmarShalabi856/SmartBudget-MVC/assets/93845511/0480c537-6320-4748-9929-a349226b0a88)
+![3](https://github.com/OmarShalabi856/SmartBudget-MVC/assets/93845511/a2188857-8b67-46c4-967a-78c8917de511)
