@@ -1,8 +1,67 @@
-﻿@{
+﻿@model IEnumerable<Transaction>
+@{
     ViewData["Title"] = "Home Page";
 }
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="d-flex justify-content-between align-items-lg-stretch p-5">
+    <div style="width: 350px; height: 300px;">
+        <h3>Expenses Divided By Category</h3>
+        <canvas id="pieChart" width="300" height="300"></canvas>
+    </div>
+    <div style="width: 600px; height: 300px;">
+        <h3>Expenses Over Time</h3>
+        <canvas id="lineChart" width="600" height="300"></canvas>
+    </div>
+</div>
+
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <script>
+        var expensesData = @Html.Raw(Json.Serialize(Model.GroupBy(t => t.Category?.Title).Select(t => new { Category = t.Key, Amount = t.Sum(i=>i.Amount) })));
+        var timeSeriesExpensesData = @Html.Raw(Json.Serialize(Model.Select(t => new { Date = t.Date, Amount = t.Amount})));
+        var categories = expensesData.map(data => data.category);
+        var amounts = expensesData.map(data => data.amount);
+        var pieChartLocation = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(pieChartLocation, {
+            type: 'pie',
+            data: {
+                labels: categories,
+                datasets: [{
+                    label: 'Expenses',
+                    data: amounts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                
+            }
+        });
+        var lineChartLabels = timeSeriesExpensesData.map(data => data.date);
+        var lineChartData = timeSeriesExpensesData.map(data => data.amount);
+        console.log(timeSeriesExpensesData);
+        var lineChartLocation = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(lineChartLocation, {
+            type: 'line',
+            data: {
+                labels: lineChartLabels,
+                datasets: [{
+                    label: 'Expenses Over Time',
+                    data: lineChartData,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {}
+        });
+   </script>
+
 </div>

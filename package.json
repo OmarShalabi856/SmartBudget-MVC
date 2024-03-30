@@ -14,8 +14,7 @@
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
   },
-
-    "css:build": "npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify"
+  "dependencies": {
+    "chart.js": "^4.4.2"
   }
-
 }
